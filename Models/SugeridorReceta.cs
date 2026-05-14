@@ -1,9 +1,9 @@
 namespace recetify.Models;
 
-pubic class SugeridorReceta
+public class SugeridorReceta
 {
     public string Nombre {get; set;}
-    public dateTime Nacimiento {get; set;}
+    public DateTime Nacimiento {get; set;}
     public int Tipo {get; set;}
     public int Presupuesto {get; set;}
     public int Cantidad {get; set;}
@@ -13,7 +13,7 @@ pubic class SugeridorReceta
 
     }
 
-    public SugeridorReceta(string nombre, dateTime nacimiento, int tipo, int presupuesto, int cantidad)
+    public SugeridorReceta(string nombre, DateTime nacimiento, int tipo, int presupuesto, int cantidad)
     {
         Nombre = nombre;
         Nacimiento = nacimiento;
@@ -24,7 +24,7 @@ pubic class SugeridorReceta
 
     public int CalcularEdad()
     {
-        int edad = DateTime.Today.year - Nacimiento.year;
+        int edad = DateTime.Today.Year - Nacimiento.Year;
         return edad;
     }
 
@@ -32,11 +32,11 @@ pubic class SugeridorReceta
     {
         if(Tipo == 1)
         {
-            else if(Presupuesto < 3000 && Presupuesto > 0)
+            if(Presupuesto < 3000 && Presupuesto > 0)
             {
                 return "Fideos con manteca";
             }
-            else if(Presupuesto < 7000 && Presupuesto > 3000)
+            if(Presupuesto < 7000 && Presupuesto > 3000)
             {
                 return "Arroz con verduras salteadas";
             }
@@ -47,11 +47,11 @@ pubic class SugeridorReceta
         }
         else
         {
-            else if(Presupuesto < 3000 && Presupuesto > 0)
+            if(Presupuesto < 3000 && Presupuesto > 0)
             {
                 return "Ensalada simple";
             }
-            else if(Presupuesto < 7000 && Presupuesto > 3000)
+            if(Presupuesto < 7000 && Presupuesto > 3000)
             {
                 return "Ensalada completa con proteína";
             }
@@ -66,15 +66,15 @@ pubic class SugeridorReceta
     {
         if(Tipo == 1)
         {
-            else if(Cantidad == 1)
+            if(Cantidad == 1)
             {
                 return 20;
             }
-            else if(Cantidad == 2 || Cantidad == 3)
+            if(Cantidad == 2 || Cantidad == 3)
             {
                 return 20;
             }
-            else if(Cantidad > 3 && Cantidad < 8)
+            if(Cantidad > 3 && Cantidad < 8)
             {
                 return 40;
             }
@@ -85,11 +85,11 @@ pubic class SugeridorReceta
         }
         else
         {
-            else if(Cantidad > 0 && Cantidad < 4)
+            if(Cantidad > 0 && Cantidad < 4)
             {
                 return 10;
             }
-            else if(Cantidad > 3 && Cantidad < 8)
+            if(Cantidad > 3 && Cantidad < 8)
             {
                 return 20;
             }
@@ -104,52 +104,53 @@ pubic class SugeridorReceta
     {
         if(Presupuesto < 3000)
         {
-            else if(Cantidad > 0 && Cantidad < 4)
+            if(Cantidad > 0 && Cantidad < 4)
             {
                 return "Principiante";
             }
-            else if(Cantidad > 3 && Cantidad < 8)
+            if(Cantidad > 3 && Cantidad < 8)
             {
                 return "Intermedio";
             }
         }
         if(Presupuesto >= 3000 && Presupuesto <= 7000)
         {
-            else if(Cantidad > 0 && Cantidad < 4)
+            if(Cantidad > 0 && Cantidad < 4)
             {
                 return "Intermedio";
             }
-            else if(Cantidad > 3 && Cantidad < 8)
+            if(Cantidad > 3 && Cantidad < 8)
             {
                 return "Intermedio";
             }
         }
         if(Presupuesto > 7000)
         {
-            else if(Cantidad > 0 && Cantidad < 8)
+            if(Cantidad > 0 && Cantidad < 8)
             {
                 return "Intermedio";
-            }
+            } 
         }
         else
         {
             return "Avanzado";
         }
+        return "Error";
     }
 
     public string GenerarSaludo()
     {
         if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour <= 12)
         {
-            return "Buenos días"
+            return "Buenos días";
         }
         if(DateTime.Now.Hour > 12 && DateTime.Now.Hour < 20)
         {
-            return "Buenas tardes"
+            return "Buenas tardes";
         }
         else
         {
-            return "Buenas noches"
+            return "Buenas noches";
         }
     }
 
@@ -158,15 +159,15 @@ pubic class SugeridorReceta
         int edad = CalcularEdad();
         if(edad < 18)
         {
-            return "PELIGRO A MENORES DE 18 AÑOS"
+            return "PELIGRO A MENORES DE 18 AÑOS";
         }
         if(edad >= 60)
         {
-            return "AQUÍ TIENES TU MENSAJE ESPECIAL"
+            return "AQUÍ TIENES TU MENSAJE ESPECIAL";
         }
         else
         {
-            return "YOU CAN DO IT"
+            return "YOU CAN DO IT";
         }
     }
 }
