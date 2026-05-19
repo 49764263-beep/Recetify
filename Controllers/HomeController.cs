@@ -12,18 +12,22 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
+    [HttpGet]
     public IActionResult Index()
     {
         return View();
     }
 
-    [HttpPost]
+    [HttpGet]
     public IActionResult GenerarSugerencia(SugeridorReceta datos)
     {
         ViewBag.plato = datos.DeterminarPlato();
         ViewBag.tiempo = datos.CalcularTiempo();
         ViewBag.dificultad = datos.DeterminarDificultad();
+        ViewBag.nombre = datos.Nombre;
+        ViewBag.edad = datos.CalcularEdad();
+        ViewBag.cantidad = datos.Cantidad;
+        if()
         return View("Resultado");
     }
 

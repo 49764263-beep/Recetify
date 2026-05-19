@@ -30,6 +30,7 @@ public class SugeridorReceta
 
     public string DeterminarPlato()
     {
+
         if(Tipo == 1)
         {
             if(Presupuesto < 3000 && Presupuesto > 0)
@@ -40,10 +41,11 @@ public class SugeridorReceta
             {
                 return "Arroz con verduras salteadas";
             }
-            else
+            if(Presupuesto > 7000)
             {
                 return "Pollo al horno con guarnición";
             }
+            return null;
         }
         else
         {
@@ -55,10 +57,11 @@ public class SugeridorReceta
             {
                 return "Ensalada completa con proteína";
             }
-            else
+            if(Presupuesto > 7000)
             {
                 return "Tabla de fiambres y quesos";
             }
+            return null;
         }
     }
 
@@ -78,7 +81,7 @@ public class SugeridorReceta
             {
                 return 40;
             }
-            else
+            if(Cantidad > 7 && Cantidad < 21)
             {
                 return 80;
             }
@@ -93,11 +96,12 @@ public class SugeridorReceta
             {
                 return 20;
             }
-            else
+            if(Cantidad > 7 && Cantidad < 21)
             {
                 return 40;
             }
         }
+        return -1;
     }
 
     public string DeterminarDificultad()

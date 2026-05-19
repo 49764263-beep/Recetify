@@ -5,6 +5,14 @@
 <div class="text-center">
     <h1 class="display-4">Bienvenido</h1>
 </div>
-<form action = '@url.Action("SugeridorReceta", "Home")' method = "Post"> 
-
+<form action = '@Url.Action("GenerarSugerencia", "Home")' method = "get"> 
+    Nombre: <input type="text" name="Nombre" placeholder="Ingrese su nombre"/> <br>
+    Fecha de nacimiento: <input type="date" name="Nacimiento"/> <br>
+    Tipo: <br>
+    <input type="radio" name="Tipo" value="1"/> Caliente <br>
+    <input type="radio" name="Tipo" value="2"/> Frío <br>
+    Presupuesto: <input type="int" name="Presupuesto" min="1" placeholder="Ingrese su presupuesto"/> <br>
+    Cantidad: <input type="int" name="Cantidad" min="1" max="20" placeholder="Ingrese su cantidad"/> <br>
+    <input type="submit" value="Enviar"/>
+    <input type="Reset" value="Resetear"/>
 </form>
